@@ -37,12 +37,12 @@ class CkanController extends ControllerBase {
     $response = $client->get($uri, $options)->getBody()->getContents();
     $response = json_decode($response);
 
-    var_dump($response);
-    
-    // return [
-    //      '#type' => 'markup',
-    //    '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),    
-    // ]
+    //var_dump($response);
+
+    return [
+         '#type' => 'markup',
+        '#markup' => $this->t($response["result"][0]),    
+    ]
 
     // return [
     //   '#type' => 'markup',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ckan_connect\Client;
+namespace Drupal\ckan_connect\Connect;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\Client;

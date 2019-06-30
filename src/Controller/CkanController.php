@@ -10,52 +10,6 @@ use GuzzleHttp\Client;
  * Defines CkanController class.
  */
 class CkanController extends ControllerBase {
-
-  /**
-   * Display the markup.
-   *
-   * @return array
-   *   Return markup array.
-   */
-  public function content() {
-    $client = new Client();
-
-    $config = $this->config('ckan_module.settings');
-    $httpClient = Connect($client);
-
-    $response = get($httpClient, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'), 'action/group_list');
-
-    var_dump($response);
-    // return [
-    //      '#type' => 'markup',
-    //    '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),    
-    // ]
-
-    // return [
-    //   '#type' => 'markup',
-    //   '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),
-    // ];
-  }
-
-  /**
-   * Constructs a new CkanClient.
-   *
-   * @param \GuzzleHttp\Client $http_client
-   *   The HTTP client.
-   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   *   The config factory.
-   */
-  public function Connect(Client $http_client) {
-    $httpClient = $http_client;
-    //$this->configFactory = $config_factory;
-
-    //$config = $this->configFactory->get('ckan_connect.settings');
-
-    // $apiUrl = $api_url; //$config->get('api.url');
-    // $apiKey = $api_key; //$config->get('api.key');
-    return $httpClient;
-  }
-
   /**
    * {@inheritdoc}
    */
@@ -71,5 +25,30 @@ class CkanController extends ControllerBase {
     $response = json_decode($response);
 
     return $response;
+  }
+  
+  /**
+   * Display the markup.
+   *
+   * @return array
+   *   Return markup array.
+   */
+  public function content() {
+    $client = new Client();
+
+    $config = $this->config('ckan_module.settings');
+
+    $response = get($client, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'), 'action/group_list');
+
+    var_dump($response);
+    // return [
+    //      '#type' => 'markup',
+    //    '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),    
+    // ]
+
+    // return [
+    //   '#type' => 'markup',
+    //   '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),
+    // ];
   }
 }

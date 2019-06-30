@@ -1,0 +1,7 @@
+ckan_module.content:
+  path: '/ckan'
+  defaults:
+    _controller: '\Drupal\ckan_module\Controller\CkanController::content'
+    _title: 'CKAN Module'
+  requirements:
+    _permission: 'access content'

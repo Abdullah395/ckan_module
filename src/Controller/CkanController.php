@@ -3,7 +3,7 @@
 namespace Drupal\ckan_module\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\ckan_connect\Connect;
+use Drupal\ckan_module\Connect;
 use GuzzleHttp\Client;
 
 /**

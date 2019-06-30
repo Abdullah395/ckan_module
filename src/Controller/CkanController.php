@@ -18,7 +18,7 @@ class CkanController extends ControllerBase {
    *   Return markup array.
    */
   public function content() {
-    $client = new GuzzleHttp\Client();
+    $client = new Client();
 
     $config = $this->config('ckan_module.settings');
     $ckan = new CkanClient($client, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'));

@@ -4,7 +4,7 @@ namespace Drupal\ckan_module\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\ckan_connect\Client;
-use GuzzleHttp\Client;
+//use GuzzleHttp\Client;
 
 /**
  * Defines CkanController class.

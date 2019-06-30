@@ -3,7 +3,7 @@
 namespace Drupal\ckan_connect\Client;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use GuzzleHttp\Client;
+//use GuzzleHttp\Client;
 
 /**
  * Provides a CKAN client.

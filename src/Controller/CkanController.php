@@ -35,7 +35,7 @@ class CkanController extends ControllerBase {
     }
 
     $response = $client->get($uri, $options)->getBody()->getContents();
-    $response = json_decode($response);
+    $response = json_decode($response, true);
 
     //var_dump($response);
 

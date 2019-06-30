@@ -11,23 +11,6 @@ use GuzzleHttp\Client;
  */
 class CkanController extends ControllerBase {
   /**
-   * {@inheritdoc}
-   */
-  public function get(Client $httpClient, $api_url, $api_key, $path, array $query = []) {
-    $uri = $api_url . '/' . $path;
-    $options = ['query' => $query];
-
-    if ($api_key) {
-      $options['headers']['Authorization'] = $api_key;
-    }
-
-    $response = $httpClient->get($uri, $options)->getBody()->getContents();
-    $response = json_decode($response);
-
-    return $response;
-  }
-  
-  /**
    * Display the markup.
    *
    * @return array
@@ -37,8 +20,19 @@ class CkanController extends ControllerBase {
     $client = new Client();
 
     $config = $this->config('ckan_module.settings');
+    $api_url = $config->get('ckan_module.ckan_api');
+    $api_key = $config->get('ckan_module.ckan_key');
+    $path = "action/group_list"
 
-    $response = get($client, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'), 'action/group_list');
+    $uri = $api_url . '/' . $path;
+    $options = ['query' => $query];
+
+    if ($api_key) {
+      $options['headers']['Authorization'] = $api_key;
+    }
+
+    $response = $client->get($uri, $options)->getBody()->getContents();
+    $response = json_decode($response);
 
     var_dump($response);
     // return [

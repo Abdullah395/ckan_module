@@ -42,7 +42,7 @@ class CkanController extends ControllerBase {
     return [
          '#type' => 'markup',
         '#markup' => $this->t($response["result"][0]),    
-    ]
+    ];
 
     // return [
     //   '#type' => 'markup',

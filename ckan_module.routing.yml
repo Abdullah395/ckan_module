@@ -5,3 +5,11 @@ ckan_module.content:
     _title: 'CKAN Module'
   requirements:
     _permission: 'access content'
+
+ckan_module.form:
+  path: '/admin/config/development/ckan'
+  defaults:
+    _form: 'Drupal\ckan_module\Form\CkanForm'
+    _title: 'CKAN Module settings'
+  requirements:
+    _permission: 'administer site configuration'

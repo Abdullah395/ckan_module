@@ -1,0 +1,5 @@
+ckan_module.form:
+  title: 'CKAN Module settings'
+  description: 'CKAN API configuration here.'
+  route_name: ckan_module.form
+  parent: 'system.admin_config_development'

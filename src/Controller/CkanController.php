@@ -3,7 +3,7 @@
 namespace Drupal\ckan_module\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\ckan_connect\Client;
+use Drupal\ckan_connect\Client as CkanClient;
 use GuzzleHttp\Client;
 
 /**
@@ -21,7 +21,7 @@ class CkanController extends ControllerBase {
     $client = new GuzzleHttp\Client();
 
     $config = $this->config('ckan_module.settings');
-    $ckan = new Drupal\ckan_connect\Client($client, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'));
+    $ckan = new CkanClient($client, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'));
 
     $response = $ckan->get('action/group_list');
 

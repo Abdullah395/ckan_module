@@ -21,9 +21,9 @@ class CkanController extends ControllerBase {
     $client = new Client();
 
     $config = $this->config('ckan_module.settings');
-    $ckan = Connect($client);
+    $httpClient = Connect($client);
 
-    $response = get($ckan, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'), 'action/group_list');
+    $response = get($httpClient, $config->get('ckan_module.ckan_api'), $config->get('ckan_module.ckan_key'), 'action/group_list');
 
     var_dump($response);
     // return [
@@ -36,36 +36,6 @@ class CkanController extends ControllerBase {
     //   '#markup' => $this->t('Hello, this is the CKAN module for Drupal 8.'),
     // ];
   }
-
-
-  ///////////////////////////////////////////////////////////////////////////
-  /**
-   * The HTTP client.
-   *
-   * @var \GuzzleHttp\Client
-   */
-  protected $httpClient;
-
-  /**
-   * The config factory.
-   *
-   * @var \Drupal\Core\Config\ConfigFactoryInterface
-   */
-  protected $configFactory;
-
-  /**
-   * The API URL.
-   *
-   * @var string
-   */
-  protected $apiUrl;
-
-  /**
-   * The API key.
-   *
-   * @var string
-   */
-  protected $apiKey;
 
   /**
    * Constructs a new CkanClient.
@@ -83,7 +53,7 @@ class CkanController extends ControllerBase {
 
     // $apiUrl = $api_url; //$config->get('api.url');
     // $apiKey = $api_key; //$config->get('api.key');
-    return $httpClient
+    return $httpClient;
   }
 
   /**
